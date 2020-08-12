@@ -1,24 +1,37 @@
 /************************************************************** Task 1: Warm-up! **************************************************************/
 //Task a: declare a variable called votingAge, console log true if age > 18 (no function required)
-
-
-
+let votingAge =18;
+let age=21;
+if(age>18){
+    console.log(true) ;
+}else{
+    console.log(false);
+}
 
 
 //Task b: declare a variable and then use a conditional to change the value of that variable based on the value assigned to a second variable (no function required)
-
-
-
+let mood="happy";
+let dessert="yogurt";
+if(dessert==="ice cream"){
+    mood="happy";
+}else if(dessert==="yogurt"){
+    mood="sad";
+}
+console.log(mood);
 
 
 //Task c: Convert string ("1999") to integer (1999)  (no function required) // hint look up the Number method
 
-
+let string="1999";
+console.log(Number(string));
 
 
 
 //Task d: Write a function to multiply a*b 
-
+function multiply(a,b){
+    return a*b;
+}
+console.log(multiply(3,7));
 
 
 
@@ -26,8 +39,10 @@
 /************************************************************** Task 2 **************************************************************/
 //Age in Dog years
 //write a function that takes your age and returns it to you in dog years - they say that 1 human year is equal to seven dog years 
-
-
+function dogYears(myAge){
+    return myAge * 7;
+}
+console.log(dogYears(30));
 
 
 
@@ -48,8 +63,12 @@
 // 7 - 12 months 4% of their body weight
 
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
-  
-
+  function dogFeeder(weight,year){
+      if(weight>=11 && weight<=15 && year>=1){
+          return weight * 0.03;
+      }
+  }
+  console.log(dogFeeder(15,1));
 
 
 
@@ -59,6 +78,41 @@
 // it should return you won or you lost based on the rules of the game (you may need to look up the rules if you have not played before)
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
+function rps(str){
+let random=Math.random();
+let computerChoice="";
+if(random<=0.33){
+    computerChoice ="rock";
+}else if(random>=0.34 && random<=0.67){
+    computerChoice="paper"
+}else if(random>0.67 && random<1){
+    computerChoice="scissor";
+}
+
+    if(computerChoice==="rock" && str==="paper"){
+        console.log("won");
+    }else if(computerChoice==="scissor" && str==="paper"){
+        console.log("lost");
+    }else if(computerChoice==="paper" && str==="scissor"){
+        console.log("won");
+    }else if(computerChoice==="rock" && str==="rock"){
+        console.log("tie")
+    }else if(computerChoice==="rock" && str==="scissor"){
+        console.log("lost");
+    }else if( computerChoice==="scissor" && str==="rock"){
+        console.log("won");
+    }else if(computerChoice==="scissor" && str==="scissor"){
+        console.log("tie");
+    }else if(computerChoice==="paper" && str==="rock"){
+        console.log("lost");
+    }else{
+        console.log(" ");
+    }
+}
+console.log(rps("rock"));
+
+
+   
 
   
   
@@ -66,24 +120,31 @@
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
-
-
+function kiloToMiles(kilometers){
+    return kilometers *0.621371;
+}
+console.log(kiloToMiles(3));
 
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
   
-
-
+function feetToCm(feet){
+    return feet * 30.48;
+}
+console.log(feetToCm(4));
 
 
 /************************************************************** Task 6 **************************************************************/
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
-  
-
-
+function annoyingSong(bottles){
+    for(i=bottles; i>=0; i--){
+        console.log(i);
+    }
+}
+console.log(annoyingSong(99));
 
 
 /************************************************************** Task 7 **************************************************************/
@@ -94,6 +155,18 @@
 //70s should be Cs 
 //60s should be D 
 //and anything below 60 should be F
+let grade=87;
+if(grade>=90 && grade<100){
+    console.log("A");
+}else if(grade>=80 && grade<90){
+    console.log("B");
+}else if(grade>=70 && grade<80){
+    console.log("C");
+}else if(grade>=60 && grade<70){
+    console.log("D");
+}else{
+    console.log("F");
+}
   
 
   
@@ -103,6 +176,18 @@
 //Create a function that counts the number of vowels within a string. It should handle both capitalized and uncapitalized vowels.
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method
+function countVowels(str){
+    let count=0;
+    let vowels="aeiou";
+    for(i=0; i<str.length; i++){
+        if(vowels.includes(str[i].toLowerCase())){
+            count=count+1;
+        }
+    }
+    return count;
+}
+console.log(countVowels("challenge"));
+   
 
 
 
@@ -112,7 +197,37 @@
 //Take Rock, Paper, Sissors further
 //update your rock papers sissors code below to take a prompt from a user using the window object
 
-
-
-
-
+let str=prompt("Hey user,what's your choice?");
+function rps(str){
+    let random=Math.random();
+    let computerChoice="";
+    if(random<=0.33){
+        computerChoice ="rock";
+    }else if(random>=0.34 && random<=0.67){
+        computerChoice="paper"
+    }else if(random>0.67 && random<1){
+        computerChoice="scissor";
+    }
+    
+        if(computerChoice==="rock" && str==="paper"){
+            console.log("won");
+        }else if(computerChoice==="scissor" && str==="paper"){
+            console.log("lost");
+        }else if(computerChoice==="paper" && str==="scissor"){
+            console.log("won");
+        }else if(computerChoice==="rock" && str==="rock"){
+            console.log("tie")
+        }else if(computerChoice==="rock" && str==="scissor"){
+            console.log("lost");
+        }else if( computerChoice==="scissor" && str==="rock"){
+            console.log("won");
+        }else if(computerChoice==="scissor" && str==="scissor"){
+            console.log("tie");
+        }else if(computerChoice==="paper" && str==="rock"){
+            console.log("lost");
+        }else{
+            console.log(" ");
+        }
+    }
+    console.log(rps("rock"));
+    
